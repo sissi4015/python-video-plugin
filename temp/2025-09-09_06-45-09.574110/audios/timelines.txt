@@ -1,0 +1,188 @@
+[
+    {
+        "confidence": 0.57459503,
+        "endTime": 0.855,
+        "startTime": 0.715,
+        "word": "一"
+    },
+    {
+        "confidence": 0.89110243,
+        "endTime": 1.045,
+        "startTime": 0.855,
+        "word": "冬"
+    },
+    {
+        "confidence": 0.9589118,
+        "endTime": 1.235,
+        "startTime": 1.045,
+        "word": "天"
+    },
+    {
+        "confidence": 0.93269646,
+        "endTime": 1.345,
+        "startTime": 1.235,
+        "word": "都"
+    },
+    {
+        "confidence": 0.9816207,
+        "endTime": 1.475,
+        "startTime": 1.345,
+        "word": "没"
+    },
+    {
+        "confidence": 0.9870885,
+        "endTime": 1.645,
+        "startTime": 1.475,
+        "word": "开"
+    },
+    {
+        "confidence": 0.9204436,
+        "endTime": 1.745,
+        "startTime": 1.645,
+        "word": "过"
+    },
+    {
+        "confidence": 0.9634637,
+        "endTime": 1.805,
+        "startTime": 1.745,
+        "word": "的"
+    },
+    {
+        "confidence": 0.9701765,
+        "endTime": 1.955,
+        "startTime": 1.805,
+        "word": "空"
+    },
+    {
+        "confidence": 0.8779329,
+        "endTime": 2.405,
+        "startTime": 1.955,
+        "word": "调，"
+    },
+    {
+        "confidence": 0.9678275,
+        "endTime": 2.765,
+        "startTime": 2.645,
+        "word": "你"
+    },
+    {
+        "confidence": 0.94324976,
+        "endTime": 2.865,
+        "startTime": 2.765,
+        "word": "都"
+    },
+    {
+        "confidence": 0.9669253,
+        "endTime": 3.085,
+        "startTime": 2.865,
+        "word": "想"
+    },
+    {
+        "confidence": 0.98329324,
+        "endTime": 3.275,
+        "startTime": 3.085,
+        "word": "象"
+    },
+    {
+        "confidence": 0.9567681,
+        "endTime": 3.385,
+        "startTime": 3.275,
+        "word": "不"
+    },
+    {
+        "confidence": 0.9719848,
+        "endTime": 3.525,
+        "startTime": 3.385,
+        "word": "到"
+    },
+    {
+        "confidence": 0.9345602,
+        "endTime": 3.595,
+        "startTime": 3.525,
+        "word": "有"
+    },
+    {
+        "confidence": 0.98411655,
+        "endTime": 3.745,
+        "startTime": 3.595,
+        "word": "多"
+    },
+    {
+        "confidence": 0.85562855,
+        "endTime": 4.045,
+        "startTime": 3.745,
+        "word": "脏。"
+    },
+    {
+        "confidence": 0.92110574,
+        "endTime": 4.680042,
+        "startTime": 4.455042,
+        "word": "今"
+    },
+    {
+        "confidence": 0.893091,
+        "endTime": 4.8200417,
+        "startTime": 4.680042,
+        "word": "天"
+    },
+    {
+        "confidence": 0.9357333,
+        "endTime": 4.940042,
+        "startTime": 4.8200417,
+        "word": "五"
+    },
+    {
+        "confidence": 0.98225546,
+        "endTime": 5.0700417,
+        "startTime": 4.940042,
+        "word": "八"
+    },
+    {
+        "confidence": 0.9332197,
+        "endTime": 5.200042,
+        "startTime": 5.0700417,
+        "word": "到"
+    },
+    {
+        "confidence": 0.9137197,
+        "endTime": 5.5300417,
+        "startTime": 5.200042,
+        "word": "家"
+    },
+    {
+        "confidence": 0.9331732,
+        "endTime": 5.950042,
+        "startTime": 5.750042,
+        "word": "九"
+    },
+    {
+        "confidence": 0.9867056,
+        "endTime": 6.1100416,
+        "startTime": 5.950042,
+        "word": "块"
+    },
+    {
+        "confidence": 0.8961398,
+        "endTime": 6.2200418,
+        "startTime": 6.1100416,
+        "word": "九"
+    },
+    {
+        "confidence": 0.87594855,
+        "endTime": 6.370042,
+        "startTime": 6.2200418,
+        "word": "洗"
+    },
+    {
+        "confidence": 0.9529453,
+        "endTime": 6.500042,
+        "startTime": 6.370042,
+        "word": "空"
+    },
+    {
+        "confidence": 0.90157133,
+        "endTime": 6.670042,
+        "startTime": 6.500042,
+        "word": "调"
+    }
+]

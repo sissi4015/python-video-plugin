@@ -1,0 +1,8 @@
+numpy
+opencv-python
+moviepy
+gTTS
+pydub
+speechrecognition
+pillow
+scikit-learn
