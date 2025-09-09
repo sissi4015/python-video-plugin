@@ -88,7 +88,7 @@ def video_generate(video_type, shots, i, first_video_url, video_dir, last_video_
     ]
 
     # 步骤3：添加音频和字幕
-    # -vf subtitles=xxx.srt 添加字幕
+    # vf subtitles=xxx.srt 添加字   
     # -i audio_path 添加音频
     # -map 0:v:0 只用第一个视频流
     # -map 1:a:0 只用第二个输入的音频流
@@ -164,8 +164,8 @@ def search_videos(video_type, shots, video_dir):
     result_paths = []
     type_dir = os.path.join(VIDEO_LOCAL_DATABASE, video_type)
     if not os.path.exists(type_dir):
-        print(f"未找到类型文件夹: {type_dir}")
-        return []
+        logger.error(f"未找到视频类型文件夹: {type_dir}")
+        raise FileNotFoundError(f"未找到视频类型文件夹: {type_dir}")
 
     for idx, shot in enumerate(shots, start=1):
         
@@ -214,12 +214,10 @@ def search_videos(video_type, shots, video_dir):
             '-y',
             new_video_i
         ]
-        try:
-            subprocess.run(trim_cmd, check=True, capture_output=True)
-            result_paths.append(new_video_i)
-        except subprocess.CalledProcessError as e:
-            print(f"剪辑 {org_video_i} 失败: {e.stderr.decode('utf-8', errors='ignore')}")
-            continue
+        
+        subprocess.run(trim_cmd, check=True, capture_output=True)
+        result_paths.append(new_video_i)
+        
 
     return result_paths
 
