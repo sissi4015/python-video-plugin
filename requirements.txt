@@ -6,3 +6,4 @@ pydub
 speechrecognition
 pillow
 scikit-learn
+openai

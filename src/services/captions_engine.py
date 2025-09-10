@@ -1,4 +1,3 @@
-from math import e
 import re
 import json
 import logging

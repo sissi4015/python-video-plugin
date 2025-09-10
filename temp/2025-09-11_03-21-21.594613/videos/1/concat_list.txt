@@ -1,7 +1,0 @@
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_1.mp4'
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_2.mp4'
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_3.mp4'
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_4.mp4'
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_5.mp4'
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_6.mp4'
-file 'E:\py-workspace\python-video-plugin\temp\2025-09-11_03-21-21.594613\videos\\1\2025-09-11_03-21-21.594613_7.mp4'

@@ -2,10 +2,7 @@ import subprocess
 import os
 import logging
 import random
-import uuid
 import time
-
-from pydantic_core import Url
 
 # 路径设置
 # input_dir = "D:\\BaiduNetdiskDownload\\分镜素材\\开头"      # 主视频素材目录
