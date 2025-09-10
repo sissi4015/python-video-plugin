@@ -28,7 +28,8 @@ RESOURCE_ID = "volc.service_type.10029"
 
 # 声音类型
 # 音色列表https://www.volcengine.com/docs/6561/1257544
-VOICE_TYPE = "zh_male_yangguangqingnian_emo_v2_mars_bigtts"
+# VOICE_TYPE = "zh_male_yangguangqingnian_emo_v2_mars_bigtts"
+VOICE_TYPE = "ICL_zh_male_huoposhuanglang_tob"
 # 业务集群
 CLUSTER = "volcano_tts"
 # 编码
@@ -92,6 +93,9 @@ async def audio_generate(text: str, audio_file_url: str, audio_flag, timelines) 
                     "format": ENCODING,
                     "sample_rate": 24000,
                     "enable_timestamp": True,
+                    # 语速，范围[-50, 100]
+                    # 1.0倍速是0，2.0倍速是100，所以1.2倍速是 (1.2 - 1.0) / (2.0 - 1.0) * 100 = 20
+                    "speech_rate": 20,
                 },
                 "text": text,
                 "additions": json.dumps(

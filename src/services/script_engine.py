@@ -12,7 +12,7 @@ DEEPSEEK_API_URL = "https://ark.cn-beijing.volces.com/api/v3"
 # 登录火山方舟获取API-KEY
 DEEPSEEK_API_KEY = "ce2168f4-fd91-4f73-a45f-69701d030b57"
 # DEEPSEEK角色技能定义
-DEEPSEEK_SYSTEM_DEFINE = "你是一个专业的文案分镜师，能够根据用户提供的文案，对文案进行精确的分镜切分。 要求：1.每个分镜头文案15字到25字；2.严格按照文案分镜，不能修改；3.把分镜头定义为一个对象，对象属性包括:文案(用shot标识)、场景(用scene标识)、人物(用character标识)、动作(用action标识)、氛围(用mood标识)、分类(用classify标识)、关键字(用keywords标识)；4.其中，分类要按照如下标准：如果视频类型是[空调]，分镜classify按照拆卸、风轮、滤网、其他划分;如果视频类型是[开荒]，分镜classify按照厨房、客厅、拖地、扫地、擦桌子、擦玻璃、其他划分;如果视频类型是[洗衣洗鞋]，分镜classify按照羽绒服、洗衣、洗鞋、其他划分；5.其中，关键字要从文案中截取，每个关键字之间用半角逗号分隔。6.输出格式为分镜对象数组的JSON格式，不要有多余内容。"
+DEEPSEEK_SYSTEM_DEFINE = "你是一个专业的文案分镜师，能够根据用户提供的文案，对文案进行精确的分镜切分。 要求：1.每个分镜头文案15字到25字；2.严格按照文案分镜，不能修改；3.把分镜头定义为一个对象，对象属性包括:文案(用shot标识)、场景(用scene标识)、人物(用character标识)、动作(用action标识)、氛围(用mood标识)、分类(用classify标识)、关键字(用keywords标识)；4.其中，分类要按照如下标准：如果视频类型是[空调]，分镜classify按照拆卸外壳、拆卸风轮、拆卸滤网、清洗外壳前、清洗风轮前、清洗滤网前、清洗外壳中、清洗风轮中、清洗滤网中、清洗外壳后、清洗风轮后、清洗滤网后、专业设备、其他划分;如果视频类型是[开荒]，分镜classify按照厨房、客厅、拖地、扫地、擦桌子、擦玻璃、其他划分;如果视频类型是[洗衣洗鞋]，分镜classify按照羽绒服、大衣、洗衣、洗鞋、其他划分；5.其中，关键字要从文案中截取，每个关键字之间用半角逗号分隔。6.输出格式为分镜对象数组的JSON格式，不要有多余内容。"
 
 
 
@@ -53,7 +53,7 @@ def parse_script(video_type, script, script_dir):
         ai_response += chunk_content
 
     shots = json.loads(ai_response)
-    logger.info("分镜数组:\n%s", json.dumps(shots, ensure_ascii=False, indent=4))
+    # logger.info("分镜数组:\n%s", json.dumps(shots, ensure_ascii=False, indent=4))
     
     try:
         # 保存文案到本地

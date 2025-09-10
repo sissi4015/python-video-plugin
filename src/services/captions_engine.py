@@ -1,3 +1,4 @@
+from math import e
 import re
 
 
@@ -19,15 +20,15 @@ def caption_generate(shots, timelines, script_dir):
     idx = 1
     char_idx = 0
     completed_shots = []
-    #SRT文件内容
-    srt_content = ""
+    
+    # 每个分镜的起始时间
+    starttime = 0.0
     for shot in shots:
         # 分镜文本
         shotstr = shot['shot']
         # 统计分镜文本中的汉字数（不计标点符号）
         shot_len = len(re.findall(r'[\u4e00-\u9fff]', shotstr))
         # 获取该分镜对应的所有字的时间区间
-        starttime = timelines[char_idx]['startTime']
         endtime = timelines[char_idx + shot_len - 1]['endTime']
         # 获取该分镜的时长
         duration = endtime - starttime
@@ -43,14 +44,51 @@ def caption_generate(shots, timelines, script_dir):
             "duration": duration
         }
         completed_shots.append(shot_info)
-        # 获取该分镜的置信度
-        # confidence = timelines[char_idx]['confidence']
-        srt_content += f"{idx}\n"
-        srt_content += f"{format_timestamp(starttime)} --> {format_timestamp(endtime)}\n"
-        srt_content += f"{shotstr}\n\n"
+
+        # srt_content += f"{idx}\n"
+        # srt_content += f"{format_timestamp(starttime)} --> {format_timestamp(endtime)}\n"
+        # srt_content += f"{shotstr}\n\n"
 
         idx += 1
         char_idx += shot_len
+        starttime = endtime
+
+
+    # SRT文件内容
+    srt_content = ""
+    # 每一句srt文案
+    srt_word = ""
+    # SRT字幕数组--设置每条字幕
+    srt_array = []
+    is_new_srt = True
+    srt_start = 0.0
+    for item in timelines:
+
+        timeline_word = item['word']
+        srt_word += timeline_word
+
+        if is_new_srt:
+            srt_start = item['startTime']
+            is_new_srt = False
+            srt_content += f"{len(srt_array) + 1}\n"
+            srt_content += f"{format_timestamp(srt_start)} --> "
+        
+
+        is_last_word = re.search(r'[，。！？；：,.!?;:、]', timeline_word) or (item == timelines[-1])
+        if is_last_word:
+            srt_end = item['endTime']
+            srt_array.append({
+                "index": len(srt_array) + 1,
+                "start": srt_start,
+                "end": srt_end,
+                "text": timeline_word
+            })
+            srt_content += f"{format_timestamp(srt_end)}\n"
+            srt_content += f"{re.sub(r'[，。！？；：,.!?;:、]', '', srt_word)}\n\n"
+
+            is_new_srt = True
+            srt_word = ""
+
 
     # 保存字幕文件
     with open(script_dir + "captions.srt", "w", encoding="utf-8") as f:
