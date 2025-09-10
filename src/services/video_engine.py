@@ -39,6 +39,7 @@ def video_generate(n, first_video_url, video_dir, last_video_url, audio_file_url
         output_for_i_url = OUTPUT_DIR + "\\" + f"{currunt_time}_{i}"
         try:
             video_merge_export(output_for_i_url,first_video_url, videos_for_i_url, last_video_url, audio_file_url, caption_file_url)
+            logger.info(f"第{i}条视频合成success")
         except Exception as e:
             logger.error(f"第{i}条视频:剪辑合成失败: {e}")
             continue
@@ -133,8 +134,8 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
             "-i", audio_output_path,
             "-vf", (
             f"subtitles='{safe_caption_path}':force_style="
-            "'FontName=SimHei,FontSize=10,PrimaryColour=&FFFFFF,OutlineColour=&000000,"
-            "BorderStyle=1,Outline=2,Shadow=1,Alignment=2,WrapStyle=0,MaxLines=1'"
+            "'FontName=SimHei,FontSize=8,PrimaryColour=&HFFFFFF&,OutlineColour=&H000000&,"
+            "BorderStyle=1,Outline=2,Shadow=0,Alignment=2,MarginV=20,WrapStyle=0,MaxLines=1'"
             ),
             "-c:a", "copy",
             "-c:v", "libx264",
@@ -214,12 +215,35 @@ def video_clips(video_type, shots, video_dir, n, currunt_time):
                     break
             # 粗剪视频片段
             output_clip_path = os.path.join(output_folder, f"{currunt_time}_{idx+1}.mp4")
-            # 使用ffmpeg从第2秒开始剪辑duration秒
+            # 随机截取duration时长的视频片段
+            # 获取视频总时长
+            probe_cmd = [
+                "ffprobe",
+                "-v", "error",
+                "-show_entries", "format=duration",
+                "-of", "default=noprint_wrappers=1:nokey=1",
+                selected_video
+            ]
+            try:
+                result = subprocess.run(probe_cmd, check=True, capture_output=True, text=True)
+                total_duration = float(result.stdout.strip())
+            except Exception as e:
+                logger.error(f"获取视频时长失败: {selected_video}, 错误: {e}")
+                continue
+
+            # 随机起始时间，确保不会超出视频长度
+            if total_duration > duration + 2:
+                start_time = random.uniform(2, total_duration - duration)
+            else:
+                start_time = 0
+
+            # duration保留两位小数，进一法
+            duration_ceil = round(duration + 0.005, 2)
             ffmpeg_cmd = [
                 "ffmpeg",
-                "-ss", "2",
+                "-ss", str(start_time),
                 "-i", selected_video,
-                "-t", str(duration),
+                "-t", str(duration_ceil),
                 "-vf", "scale=1080:1920,fps=30",  # 统一分辨率和帧率
                 "-c:v", "libx264",
                 "-crf", "20",  # 更高质量

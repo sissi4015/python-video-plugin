@@ -1,5 +1,7 @@
 from math import e
 import re
+import json
+import logging
 
 
 def format_timestamp(seconds):
@@ -94,6 +96,14 @@ def caption_generate(shots, timelines, script_dir):
     with open(script_dir + "captions.srt", "w", encoding="utf-8") as f:
         f.write(srt_content)
     
+    # 保存分镜结果到本地
+    try:
+        with open(script_dir + "shots.txt", "w", encoding="utf-8") as f:
+            f.write(json.dumps(completed_shots, ensure_ascii=False, indent=4))
+    except Exception as e:
+        logger = logging.getLogger("video_plugin")
+        logger.warning(f"保存文案或者分镜结果失败，但不影响后续操作: {e}")
+
     return completed_shots
 
 # 测试调用数据
