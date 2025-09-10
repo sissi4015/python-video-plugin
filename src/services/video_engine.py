@@ -81,11 +81,6 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
     ]
     subprocess.run(concat_cmd, check=True, capture_output=True)
 
-    # 等待合并后的视频是否生成成功
-    while not os.path.exists(merged_video_path):
-        logger.info("等待视频合成中...")
-        time.sleep(1)
-
     # 添加音频
     if audio_file_url:
         audio_output_path = f"{output_for_i_url}_audio.mp4"
@@ -108,10 +103,6 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
     else:
         audio_output_path = merged_video_path
 
-    # 等待添加音频后的视频是否生成成功
-    while not os.path.exists(audio_output_path):
-        logger.info("等待音频合成中...")
-        time.sleep(1)
 
     # 添加字幕
     if caption_file_url:
@@ -122,7 +113,6 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
         # safe_audio_output_path = audio_output_path.replace('\\', '/')
 
         # ffmpeg -i D:\\video_house\\2025-09-10_20-33-30.357655_1_audio.mp4 -vf subtitles='E\:\\py-workspace\\python-video-plugin\\temp\\2025-09-10_20-33-30.357655\\script\\captions.srt' -c:a copy -c:v libx264 -crf 23 -preset slow -y D:\\video_house\\2025-09-10_20-33-30.357655_1.mp4
-        # ffmpeg -i D:\\video_house\\\2025-09-10_20-59-18.211608_1_audio.mp4 -vf subtitles='E\\:\\py-workspace\\python-video-plugin\\temp\\2025-09-10_20-59-18.211608\\script\\captions.srt' -c:a copy -c:v libx264 -crf 23 -preset slow -y D:\\video_house\\\2025-09-10_20-59-18.211608_1.mp4
 
         safe_caption_path = caption_file_url.replace('\\', '\\\\').replace(':', '\:')
 
