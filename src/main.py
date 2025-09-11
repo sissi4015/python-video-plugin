@@ -4,7 +4,6 @@ from pickle import FALSE
 import asyncio
 import datetime
 import logging
-import uuid
 
 from services.script_engine import parse_script
 from services.audio_engine import audio_generate
@@ -93,7 +92,6 @@ def main(script, video_type, n, first_video_url, last_video_url):
     try:  
         # 生成草稿
         video_generate(n, first_video_url, video_dir, last_video_url, audio_file_url, caption_file_url, currunt_time)
-        logger.info(f"生成草稿success")
     except Exception as e:
         logger.error(f"生成草稿失败: {e}")
         return

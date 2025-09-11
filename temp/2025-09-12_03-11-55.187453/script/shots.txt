@@ -1,0 +1,134 @@
+[
+    {
+        "shot": "心爱的衣服鞋子怕自己洗坏洗不干净？",
+        "scene": "家庭场景",
+        "character": "用户",
+        "action": "担忧洗衣",
+        "mood": "忧虑",
+        "classify": "其他",
+        "starttime": 0.0,
+        "endtime": 2.495,
+        "duration": 2.495
+    },
+    {
+        "shot": "那我建议你试试五八到家",
+        "scene": "推荐场景",
+        "character": "推荐者",
+        "action": "建议服务",
+        "mood": "自信",
+        "classify": "其他",
+        "starttime": 2.495,
+        "endtime": 4.435,
+        "duration": 1.9399999999999995
+    },
+    {
+        "shot": "这个几千平的中央洗护工厂",
+        "scene": "工厂外观",
+        "character": "无",
+        "action": "展示规模",
+        "mood": "专业",
+        "classify": "其他",
+        "starttime": 4.435,
+        "endtime": 5.855,
+        "duration": 1.4200000000000008
+    },
+    {
+        "shot": "十六道洗护消杀工序",
+        "scene": "工厂内部",
+        "character": "无",
+        "action": "展示工序",
+        "mood": "严谨",
+        "classify": "其他",
+        "starttime": 5.855,
+        "endtime": 7.425,
+        "duration": 1.5699999999999994
+    },
+    {
+        "shot": "全手工处理深层污渍",
+        "scene": "清洗过程",
+        "character": "工作人员",
+        "action": "手工清洗",
+        "mood": "细致",
+        "classify": "其他",
+        "starttime": 7.425,
+        "endtime": 8.925,
+        "duration": 1.5000000000000009
+    },
+    {
+        "shot": "现在抖音有团购",
+        "scene": "手机屏幕",
+        "character": "用户",
+        "action": "查看优惠",
+        "mood": "惊喜",
+        "classify": "其他",
+        "starttime": 8.925,
+        "endtime": 10.382125,
+        "duration": 1.4571249999999996
+    },
+    {
+        "shot": "六十九就可以任洗三件",
+        "scene": "价格展示",
+        "character": "无",
+        "action": "突出价格",
+        "mood": "实惠",
+        "classify": "其他",
+        "starttime": 10.382125,
+        "endtime": 11.872125,
+        "duration": 1.4900000000000002
+    },
+    {
+        "shot": "不管是羽绒服、运动鞋还是羊毛衫",
+        "scene": "物品展示",
+        "character": "无",
+        "action": "列举品类",
+        "mood": "全面",
+        "classify": "其他",
+        "starttime": 11.872125,
+        "endtime": 14.462125,
+        "duration": 2.59
+    },
+    {
+        "shot": "都能给你洗的干干净净",
+        "scene": "清洗结果",
+        "character": "无",
+        "action": "展示效果",
+        "mood": "满意",
+        "classify": "其他",
+        "starttime": 14.462125,
+        "endtime": 15.912125,
+        "duration": 1.4499999999999993
+    },
+    {
+        "shot": "而且提供全国上门快递取送",
+        "scene": "物流服务",
+        "character": "快递员",
+        "action": "取送服务",
+        "mood": "便捷",
+        "classify": "其他",
+        "starttime": 15.912125,
+        "endtime": 17.742125,
+        "duration": 1.8300000000000018
+    },
+    {
+        "shot": "连门都不用出",
+        "scene": "家庭场景",
+        "character": "用户",
+        "action": "享受便利",
+        "mood": "轻松",
+        "classify": "其他",
+        "starttime": 17.742125,
+        "endtime": 18.742125,
+        "duration": 1.0
+    },
+    {
+        "shot": "有需要的抓紧左下角预约吧",
+        "scene": "手机界面",
+        "character": "用户",
+        "action": "点击预约",
+        "mood": "紧迫",
+        "classify": "其他",
+        "starttime": 18.742125,
+        "endtime": 20.872791,
+        "duration": 2.130665999999998
+    }
+]

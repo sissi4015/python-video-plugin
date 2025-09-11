@@ -11,10 +11,13 @@ import websockets
 
 # 用户认证
 # 在https://console.volcengine.com/ark/region:ark+cn-beijing/tts/speechSynthesis获取
-APPID = "5124948200"
-ACCESS_TOKEN = "m-Icda-DQSWULS8t6SRlQNHxqAsWAIe1"
-SECRET_KEY = "GelGpw5xKMaoSFiQnN_CpukAiJk9BpkK"
+# APPID = "5124948200"
+# ACCESS_TOKEN = "m-Icda-DQSWULS8t6SRlQNHxqAsWAIe1"
+# SECRET_KEY = "GelGpw5xKMaoSFiQnN_CpukAiJk9BpkK"
 
+APPID = "2777727745"
+ACCESS_TOKEN = "OQ9_-JRweIhaq2yJIdktWUjEL3J8G4V1"
+SECRET_KEY = "6yDAEnavKYgG4Ecs9EX3wdC01WUAvVam"
 # 表示调用服务的资源信息 ID
 """ 
 大模型语音合成：

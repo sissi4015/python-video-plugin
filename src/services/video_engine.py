@@ -81,6 +81,8 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
     ]
     subprocess.run(concat_cmd, check=True, capture_output=True)
 
+    logger.info(f"视频合并完成: {merged_video_path}")
+
     # 添加音频
     if audio_file_url:
         audio_output_path = f"{output_for_i_url}_audio.mp4"
@@ -104,6 +106,8 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
         audio_output_path = merged_video_path
 
 
+    logger.info(f"视频和音频合成完成: {audio_output_path}")
+
     # 添加字幕
     if caption_file_url:
         final_output_path = f"{output_for_i_url}.mp4"
@@ -122,7 +126,7 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
             "-vf", (
             f"subtitles='{safe_caption_path}':force_style="
             "'FontName=SimHei,FontSize=8,PrimaryColour=&HFFFFFF&,OutlineColour=&H000000&,"
-            "BorderStyle=1,Outline=2,Shadow=0,Alignment=2,MarginV=20,WrapStyle=0,MaxLines=1'"
+            "BorderStyle=0,Outline=1,Shadow=0,Alignment=2,MarginV=45,WrapStyle=0,MaxLines=1'"
             ),
             "-c:a", "copy",
             "-c:v", "libx264",
@@ -139,7 +143,18 @@ def video_merge_export(output_for_i_url, first_video_url, videos_for_i_url, last
     else:
         final_output_path = audio_output_path
 
-    logger.info(f"视频合成完成: {final_output_path}")
+    logger.info(f"字幕添加完成: {final_output_path}")
+
+    # 删除临时文件
+    try:
+        os.remove(concat_list_path)
+        os.remove(merged_video_path)
+        os.remove(videos_for_i_url)
+        if audio_file_url:
+            os.remove(audio_output_path)
+    except Exception as e:
+        logger.warning(f"临时文件删除失败，注意定期手动清理: {e}")
+
     return final_output_path
 
 
@@ -225,7 +240,10 @@ def video_clips(video_type, shots, video_dir, n, currunt_time):
                 start_time = 0
 
             # duration保留两位小数，进一法
-            duration_ceil = round(duration + 0.005, 2)
+            duration_ceil = round(duration, 2)
+            if duration_ceil < duration:
+                duration_ceil = round(duration + 0.01, 2)
+            # print(f"视频片段原时长:{duration} 新时长 {duration_ceil} 秒")
             ffmpeg_cmd = [
                 "ffmpeg",
                 "-ss", str(start_time),
